@@ -11211,14 +11211,9 @@ function Library:CreateWindow(WindowInfo)
     end
 
     if Library.IsMobile then
-        local ToggleButton = Library:AddDraggableImageButton({
-    Icon = "rbxassetid://117383275808403",
-    IconSize = 30,
-    Func = function()
-        Library:Toggle()
-    end,
-    ExcludeDragging = true,
-})
+        local ToggleButton = Library:AddDraggableButton("Toggle", function()
+            Library:Toggle()
+        end, true, true)
 
         local LockButton = Library:AddDraggableButton("Lock", function(self)
             Library.CantDragForced = not Library.CantDragForced
